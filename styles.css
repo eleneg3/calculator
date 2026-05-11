@@ -4,11 +4,20 @@ body {
     align-items: center;
 }
 
-#screen {
+#display {
     display: flex;
     height: 200px;
     width: 500px;
     background-color: antiquewhite;
+    justify-content: flex-end;
+}
+
+#numbers {
+    display: flex;
+    align-items: flex-end;
+    font-size: 30px;
+    padding: 5px;
+    gap: 5px;
 }
 
 #buttons {
@@ -17,7 +26,6 @@ body {
     height: 500px;
     width: 500px;
     flex-direction: column;
-    /* width: 100%; */
 }
 
 .ind-buttons {
