@@ -21,28 +21,112 @@ let operator = document.getElementById("operator");
 let equalSign = document.getElementById("equalsSign");
 let results = document.getElementById("results");
 
-one.addEventListener("click", () => firstNumber.textContent += "1");
-two.addEventListener("click", () => firstNumber.textContent += "2");
-three.addEventListener("click", () => firstNumber.textContent += "3");
-four.addEventListener("click", () => firstNumber.textContent += "4");
-five.addEventListener("click", () => firstNumber.textContent += "5");
-six.addEventListener("click", () => firstNumber.textContent += "6");
-seven.addEventListener("click", () => firstNumber.textContent += "7");
-eight.addEventListener("click", () => firstNumber.textContent += "8");
-nine.addEventListener("click", () => firstNumber.textContent += "9");
-zero.addEventListener("click", () => firstNumber.textContent += "0");
+one.addEventListener("click", () => {
+    if (operator.textContent === "") {
+        firstNumber.textContent += "1";
+    } else {
+        secondNumber.textContent += "1";
+    }
+});
+two.addEventListener("click", () => {
+    if (operator.textContent === "") {
+        firstNumber.textContent += "2";
+    } else {
+        secondNumber.textContent += "2";
+    }
+});
+three.addEventListener("click", () => {
+    if (operator.textContent === "") {
+        firstNumber.textContent += "3";
+    } else {
+        secondNumber.textContent += "3";
+    }
+});
+four.addEventListener("click", () => {
+    if (operator.textContent === "") {
+        firstNumber.textContent += "4";
+    } else {
+        secondNumber.textContent += "4";
+    }
+});
+five.addEventListener("click", () => {
+    if (operator.textContent === "") {
+        firstNumber.textContent += "5";
+    } else {
+        secondNumber.textContent += "5";
+    }    
+});
+six.addEventListener("click", () => {
+    if (operator.textContent === "") {
+        firstNumber.textContent += "6";
+    } else {
+        secondNumber.textContent += "6";
+    }    
+});
+seven.addEventListener("click", () => {
+    if (operator.textContent === "") {
+        firstNumber.textContent += "7";
+    } else {
+        secondNumber.textContent += "7";
+    }    
+});
+eight.addEventListener("click", () => {
+    if (operator.textContent === "") {
+        firstNumber.textContent += "8";
+    } else {
+        secondNumber.textContent += "8";
+    }    
+});
+nine.addEventListener("click", () => {
+    if (operator.textContent === "") {
+        firstNumber.textContent += "9";
+    } else {
+        secondNumber.textContent += "9";
+    }    
+});
+zero.addEventListener("click", () => {
+    if (operator.textContent === "") {
+        firstNumber.textContent += "0";
+    } else {
+        secondNumber.textContent += "0";
+    }    
+});
 
-// if (firstNumber.textContent.length > 0) {
-    add.addEventListener("click", () => operator.textContent = "+");
-    subtract.addEventListener("click", () => operator.textContent = "-");
-    multiply.addEventListener("click", () => operator.textContent = "x");
-    devide.addEventListener("click", () => operator.textContent = "÷");
-    equals.addEventListener("click", () => equalSign.textContent += "=");
-// }
+clear.addEventListener("click", () => {
+    firstNumber.textContent = "";
+    operator.textContent = "";
+    secondNumber.textContent = "";
+});
 
-if (operator.textContent === "+") {
-    zero.addEventListener("click", () => secondNumber.textContent += "0");
-}
+add.addEventListener("click", () => {
+    if (firstNumber.textContent !== "") {
+        operator.textContent = "+"
+    }
+});
+
+subtract.addEventListener("click", () => {
+    if (firstNumber.textContent !== "") {
+        operator.textContent = "-"
+    }    
+});
+
+multiply.addEventListener("click", () => {
+    if (firstNumber.textContent !== "") {
+        operator.textContent = "x"
+    }    
+});
+
+devide.addEventListener("click", () => {
+    if (firstNumber.textContent !== "") {
+        operator.textContent = "+"
+    }    
+});
+
+equals.addEventListener("click", () => {
+    if (firstNumber.textContent !== "") {
+        operator.textContent = "+"
+    }    
+});
 
 function addition(firstNumber, secondNumber) {
     return firstNumber + secondNumber
