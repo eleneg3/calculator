@@ -96,6 +96,7 @@ clear.addEventListener("click", () => {
     firstNumber.textContent = "";
     operator.textContent = "";
     secondNumber.textContent = "";
+    results.textContent = ""
 });
 
 add.addEventListener("click", () => {
@@ -118,13 +119,7 @@ multiply.addEventListener("click", () => {
 
 devide.addEventListener("click", () => {
     if (firstNumber.textContent !== "") {
-        operator.textContent = "+"
-    }    
-});
-
-equals.addEventListener("click", () => {
-    if (firstNumber.textContent !== "") {
-        operator.textContent = "+"
+        operator.textContent = "÷"
     }    
 });
 
@@ -145,13 +140,22 @@ function division(firstNumber, secondNumber) {
 };
 
 function operate(firstNumber, secondNumber, operator) {
-    if (operator = add) {
-        return addition(firstNumber + secondNumber)
-    } else if (operator = subtract) {
-        return subtraction(firstNumber, secondNumber)
-    } else if (operator = devide) {
-        return division(firstNumber, secondNumber)
-    } else if (operator = multiply) {
-        return multiplication(firstNumber, secondNumber)
+    if (operator.textContent == "+") {
+        let answer = addition(firstNumber, secondNumber)
+        return answer
+    } else if (operator.textContent == "-") {
+        let answer = subtraction(firstNumber, secondNumber)
+        return answer 
+    } else if (operator.textContent == "÷") {
+        let answer = division(firstNumber, secondNumber)
+        return answer 
+    } else if (operator.textContent == "x") {
+        let answer = multiplication(firstNumber, secondNumber)
+        return answer
     }
 }
+
+equals.addEventListener("click", () => {
+    let result = operate(parseInt(firstNumber.textContent), parseInt(secondNumber.textContent), operator);
+    results.textContent = `= ${result}`
+})
