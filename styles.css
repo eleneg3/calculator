@@ -28,6 +28,20 @@ body {
     flex-direction: column;
 }
 
+#first-row > .ind-buttons,
+#second-row > .ind-buttons,
+#third-row > .ind-buttons {
+    width: 25%;
+}
+
+#top-buttons > .ind-buttons {
+    width: 50%;
+}
+
+#fourth-row > .ind-buttons {
+    width: 33%;
+}
+
 .ind-buttons {
     display: flex;
     padding: 15px;
