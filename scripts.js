@@ -15,6 +15,7 @@ const devide = document.getElementById("devide");
 const equals = document.getElementById("equals");
 const clear = document.getElementById("clear");
 const backspace = document.getElementById("backspace");
+const comma = document.getElementById("comma");
 let firstNumber = document.getElementById("firstNumber");
 let secondNumber = document.getElementById("secondNumber");
 let operator = document.getElementById("operator");
@@ -99,28 +100,56 @@ clear.addEventListener("click", () => {
     results.textContent = ""
 });
 
+// comma.addEventListener("click", () => {
+//     if (secondNumber) {
+//         secondNumber.textContent += ","
+//     } else if (firstNumber) {
+//         firstNumber.textContent += ","
+//     }
+// })
+
 add.addEventListener("click", () => {
-    if (firstNumber.textContent !== "") {
+    if (secondNumber.textContent !== "") {
+        let result = operate(parseInt(firstNumber.textContent), parseInt(secondNumber.textContent), operator);
+        firstNumber.textContent = result;
+        secondNumber.textContent = "";
+        operator.textContent = "+";
+    } else if (firstNumber.textContent !== "") {
         operator.textContent = "+"
     }
 });
 
 subtract.addEventListener("click", () => {
-    if (firstNumber.textContent !== "") {
+    if (secondNumber.textContent !== "") {
+        let result = operate(parseInt(firstNumber.textContent), parseInt(secondNumber.textContent), operator);
+        firstNumber.textContent = result;
+        secondNumber.textContent = "";
+        operator.textContent = "-";
+    } else if (firstNumber.textContent !== "") {
         operator.textContent = "-"
     }    
 });
 
 multiply.addEventListener("click", () => {
-    if (firstNumber.textContent !== "") {
+    if (secondNumber.textContent !== "") {
+        let result = operate(parseInt(firstNumber.textContent), parseInt(secondNumber.textContent), operator);
+        firstNumber.textContent = result;
+        secondNumber.textContent = "";
+        operator.textContent = "x";
+    } else if (firstNumber.textContent !== "") {
         operator.textContent = "x"
     }    
 });
 
 devide.addEventListener("click", () => {
-    if (firstNumber.textContent !== "") {
+    if (secondNumber.textContent !== "") {
+        let result = operate(parseInt(firstNumber.textContent), parseInt(secondNumber.textContent), operator);
+        firstNumber.textContent = result;
+        secondNumber.textContent = "";
+        operator.textContent = "÷";
+    } else if (firstNumber.textContent !== "") {
         operator.textContent = "÷"
-    }    
+    }
 });
 
 function addition(firstNumber, secondNumber) {
@@ -158,4 +187,23 @@ function operate(firstNumber, secondNumber, operator) {
 equals.addEventListener("click", () => {
     let result = operate(parseInt(firstNumber.textContent), parseInt(secondNumber.textContent), operator);
     results.textContent = `= ${result}`
+})
+
+backspace.addEventListener("click", () => {
+    if (results.textContent != "") {
+        results.textContent = ""
+        let num = secondNumber.textContent
+        let deleted = num.slice(0, - 1);
+        secondNumber.textContent = deleted
+    } else if (secondNumber.textContent != "") {
+        let num = secondNumber.textContent
+        let deleted = num.slice(0, - 1);
+        secondNumber.textContent = deleted
+    } else if (operator.textContent != "") {
+        operator.textContent = ""
+    } else if (firstNumber.textContent != "") {
+        let num = firstNumber.textContent
+        let deleted = num.slice(0, - 1);
+        firstNumber.textContent = deleted        
+    }
 })
